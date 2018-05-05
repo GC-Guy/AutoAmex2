@@ -18,7 +18,7 @@ def getAddedOffers(username, password, lastfive, nickname, outputlog = True, bro
         sys.stdout.write('\r                                            \rRunning ' + username[idx])
         sys.stdout.flush()
         try:
-            driver.get(amexWebsite)
+            driver.get(added_page)
         except:
             print("website is not available...")
             return
@@ -32,7 +32,7 @@ def getAddedOffers(username, password, lastfive, nickname, outputlog = True, bro
             continue
         time.sleep(2)
         # main program
-        driver.get(added_page)
+    #    driver.get(added_page)
         # Wait for page to load
         time.sleep(4)
         # Find all offers

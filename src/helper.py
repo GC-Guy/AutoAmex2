@@ -53,13 +53,11 @@ def getDriver(browser):
     return driver
 
 def amexLogIn(driver, usr, pwd):
-    emailFieldID = "lilo_userName"
-    passFieldID = "lilo_password"
-    loginBtnID= "lilo_formSubmit"
-    WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id(emailFieldID)).clear()
-    WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id(emailFieldID)).send_keys(usr)
-    WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id(passFieldID)).clear()
-    WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id(passFieldID)).send_keys(pwd)
-    WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id(loginBtnID)).click()
-    time.sleep(3)
-
+    emailFieldID = "eliloUserID"
+    passFieldID = "eliloPassword"
+    WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id(emailFieldID) ).clear()
+    WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id(emailFieldID) ).send_keys(usr)
+    time.sleep(1)
+    WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id(passFieldID) ).clear()
+    WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id(passFieldID) ).send_keys(pwd)
+    WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_class_name("btn-fluid") ).click()
