@@ -1,0 +1,10 @@
+*.pyc
+.*.swp
+*.csv
+*.log
+*.json
+*.txt
+*.xlsx
+.DS_Store
+._.DS_Store
+chromedriver
