@@ -61,3 +61,10 @@ def amexLogIn(driver, usr, pwd):
     WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id(passFieldID) ).clear()
     WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_id(passFieldID) ).send_keys(pwd)
     WebDriverWait(driver, 10).until(lambda driver: driver.find_element_by_class_name("btn-fluid") ).click()
+
+
+def amexLogOut(driver):
+    WebDriverWait(driver, 3).until(lambda driver: driver.find_element_by_class_name("btn-secondary")).click()
+
+
+

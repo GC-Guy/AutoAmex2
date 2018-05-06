@@ -32,9 +32,9 @@ def getAddedOffers(username, password, lastfive, nickname, outputlog = True, bro
             continue
         time.sleep(2)
         # main program
-    #    driver.get(added_page)
+        #driver.get(added_page)
         # Wait for page to load
-        time.sleep(4)
+        #time.sleep(4)
         # Find all offers
         offers = driver.find_elements_by_xpath('//*[@id="offers"]/div/section[2]/section/div')
         # Remove line with filters
