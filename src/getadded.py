@@ -30,13 +30,21 @@ def getAddedOffers(username, password, lastfive, nickname, outputlog = True, bro
             print("username/password combination is incorrect...")
     #      print username[idx]
             continue
-        time.sleep(2)
+#        time.sleep(4)
         # main program
         #driver.get(added_page)
         # Wait for page to load
         #time.sleep(4)
+        noOffers = 1
         # Find all offers
-        offers = driver.find_elements_by_xpath('//*[@id="offers"]/div/section[2]/section/div')
+        while(noOffers):
+            offers = driver.find_elements_by_xpath('//*[@id="offers"]/div/section[2]/section/div')
+            if len(offers) < 2:
+                time.sleep(1)
+            else:
+                time.sleep(1)
+                offers = driver.find_elements_by_xpath('//*[@id="offers"]/div/section[2]/section/div')
+                noOffers = 0
         # Remove line with filters
         offers.pop(0)
         # Extract text of each offer
@@ -48,7 +56,9 @@ def getAddedOffers(username, password, lastfive, nickname, outputlog = True, bro
         dateOfferPair = set()
         offersSet = set()
         # discard expired offers
+        countem = 0
         for sp in offersplit:
+            countem = countem + 1
             if sp[2] == 'EXPIRES':
                 expiration = sp[3]
             else:
@@ -86,7 +96,7 @@ def getAddedOffers(username, password, lastfive, nickname, outputlog = True, bro
         except:
             pass
 
-        time.sleep(5)
+        time.sleep(3)
 
 
     majorDateOfferList = list(majorDateOfferPair)
